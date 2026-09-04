@@ -1,6 +1,4 @@
-# ☕ Java Fundamentals
-
-A structured learning roadmap covering the core concepts of **Java programming**.  
+# ☕ Java Fundamentals  
 This section focuses on building a strong foundation before moving into **Object-Oriented Programming (OOP)** and advanced Java concepts.
 
 ## 📚 Topics
