@@ -23,6 +23,8 @@
  * 3. Constructors
  * 4. Objects
  * 5. Instance variables
+ 
+ * NOTE:  Class.forName("Mobile") -> initializes the class and executes its static block.
  */
 
 class Mobile {
