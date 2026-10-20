@@ -39,7 +39,7 @@ class BankAccount {
 
     static void showBankName() {
         System.out.println("Bank Name:"+ bankName); // can't directly access non-static variable, method
-    }
+    }                                                  //but indirectly access instance variables through an object reference by passing that object to the static method.
 
     void showAccountDetails() {
         System.out.println("Account Holder: " + accountHolder);
