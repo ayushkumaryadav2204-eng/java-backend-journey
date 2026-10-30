@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ============================================================================
+                        SPRING XML CONFIGURATION BLUEPRINT
+    ============================================================================
+    * xmlns: Defines the Spring Beans vocabulary/namespace.
+    * xsi:schemaLocation: Maps the Spring namespace to its schema definition (XSD)
+      inside the spring-beans jar for grammar validation & IDE auto-complete.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+               http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+            ========================================================================
+            STEP 1: DEFINE INDIVIDUAL COURSE BEANS (DEPENDENCIES)
+            ========================================================================
+            - 'id': Unique identifier (nickname) for the bean in the container.
+            - 'class': Fully qualified class name. Spring instantiates this using
+                       reflection (calling the default no-arg constructor).
+        -->
+    <bean id="Java" class="com.example.BCACourse.Java" />
+    <bean id = "Python" class="com.example.BCACourse.Python"/>
+    <bean id = "CPP" class="com.example.BCACourse.Cpps"/>
+
+    <!--
+        ========================================================================
+        STEP 2: DEPENDENCY INJECTION VIA CONSTRUCTOR (<constructor-arg>)
+        ========================================================================
+        CourseBuy constructor signature: CourseBuy(Courses courses, int takeAmount)
+
+        - 'ref': Pass another Spring Bean as a parameter by its bean 'id'.
+        - 'value': Pass raw literal values (int, String, double, boolean).
+    -->
+    <!-- Course buy for Java -->
+    <bean id="javaCourseBuy" class="com.example.courseBuyHere.CourseBuyHere">
+        <constructor-arg ref="Java"/>
+    </bean>
+
+    <!-- CourseBuy configured for Python Course -->
+    <bean id = "pythonCourseBuy" class="com.example.courseBuyHere.CourseBuyHere" >
+        <constructor-arg ref="Python"/>
+    </bean>
+    <!-- CourseBuy configured for CPP Course -->
+    <bean id = "cppCourseBuy" class="com.example.courseBuyHere.CourseBuyHere" >
+        <constructor-arg ref="CPP"/>
+    </bean>
+
+    </beans>
